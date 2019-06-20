@@ -25,7 +25,7 @@ proc main() =
         key:Key
         mouse:Mouse
         window_title:string = "Seriously Amazing Dungeons Of Death        (nim/libtcod)        r/roguelikedev rl tutorial thing 2019"
-
+        con:Console = consoleNew(SW, SH)
     # consoleSetCustomFont("./data/fonts/dejavu16x16_gs_tc.png", FONT_TYPE_GREYSCALE or FONT_LAYOUT_TCOD)
     consoleSetCustomFont("./data/fonts/terminal16x16_gs_ro.png", FONT_TYPE_GREYSCALE or FONT_LAYOUT_CP437)
 
@@ -39,22 +39,22 @@ proc main() =
     while true:
         discard sysCheckForEvent((ord(EVENT_KEY_PRESS) or ord(EVENT_MOUSE)), key, mouse)
 
-        consoleSetDefaultForeground(nil, Amber)
-        consoleSetDefaultBackground(nil, Black)
+        consoleSetDefaultForeground(con, Amber)
+        # consoleSetDefaultBackground(nil, Black)
+        consolePutChar(con, player_x, player_y, '@', BKGND_NONE)
 
-        consolePutChar(nil, player_x, player_y, '@', BKGND_NONE)
-
-        consoleSetDefaultForeground(nil, LightGrey)
+        consoleSetDefaultForeground(con, LightGrey)
         consolePrintfEx(    # print fps rates
-            nil, 0, 0, BKGND_NONE, LEFT, "fps:%d (%d ms)",
+            con, 0, 0, BKGND_NONE, LEFT, "fps:%d (%d ms)",
             sysGetFps(), int((sysGetLastFrameLength() * 1000))
         )
 
+        consoleBlit(con, 0, 0, SW, SH, nil, 0, 0)
         consoleFlush()
 
         # clear stuff
-        consolePutChar(nil, player_x, player_y, ' ', BKGND_NONE)
-        consolePrintfEx(nil, 0, 0, BKGND_NONE, LEFT, "                                     ")
+        consolePutChar(con, player_x, player_y, ' ', BKGND_NONE)
+        consolePrintfEx(con, 0, 0, BKGND_NONE, LEFT, "                                     ")
 
         let action:Action = handle_keys(key)
         case action.name
