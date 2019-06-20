@@ -44,9 +44,10 @@ proc main() =
 
         consolePutChar(nil, player_x, player_y, '@', BKGND_NONE)
 
+        consoleSetDefaultForeground(nil, LightGrey)
         consolePrintfEx(    # print fps rates
             nil, 0, 0, BKGND_NONE, LEFT, "fps:%d (%d ms)",
-            sysGetFps(), (int)(sysGetLastFrameLength() * 1000)
+            sysGetFps(), int((sysGetLastFrameLength() * 1000))
         )
 
         consoleFlush()
