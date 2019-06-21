@@ -28,3 +28,7 @@ proc consolePutChar*(con:Console, x, y:SomeInteger, c:char, flag:BkgndFlag = BKG
 
 proc consoleBlit*(src:Console, xSrc, ySrc, wSrc, hSrc:int, dst:Console, xDst, yDst:int, foregroundAlpha:float=1.0, backgroundAlpha:float=1.0) =
     libtcod.consoleBlit(src, cint(xSrc), cint(ySrc), cint(wSrc), cint(hSrc), dst, cint(xDst), cint(yDst), cfloat(foregroundAlpha), cfloat(backgroundAlpha))
+
+
+proc consoleSetCharBackground*(con:Console, x, y:int, col:Color, flag:BkgndFlag) =
+    libtcod.consoleSetCharBackground(con, x.cint, y.cint, col, flag)

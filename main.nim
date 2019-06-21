@@ -1,4 +1,5 @@
-import sktcod
+import tables
+import sktcod, entity, rendering, game_map
 
 {.experimental: "codeReordering".}
 
@@ -16,16 +17,33 @@ type
 
 
 proc main() =
-    var
-        running:bool = true
+    let
         SW:int = 80
         SH:int = 50
-        player_x:int = int(SW/2)
-        player_y:int = int(SH/2)
+
+        MW:int = 80
+        MH:int = 45
+
+        colors:Table[string, Color] = {
+            "dark_wall":colorRGB(50, 50, 150),
+            "dark_ground":colorRGB(0, 0, 100)
+        }.toTable
+
+    var
+        running:bool = true
+
         key:Key
         mouse:Mouse
         window_title:string = "Seriously Amazing Dungeons Of Death        (nim/libtcod)        r/roguelikedev rl tutorial thing 2019"
         con:Console = consoleNew(SW, SH)
+
+        player:Entity = new_entity(int(SW/2), int(SH/2), '@', Amber)
+        npc:Entity = new_entity(int(SW/2-5), int(SH/2-4), '@', Green)
+        entities:seq[Entity] = @[player, npc]
+
+        game_map:GameMap = new_game_map(MW, MH)
+
+
     # consoleSetCustomFont("./data/fonts/dejavu16x16_gs_tc.png", FONT_TYPE_GREYSCALE or FONT_LAYOUT_TCOD)
     consoleSetCustomFont("./data/fonts/terminal16x16_gs_ro.png", FONT_TYPE_GREYSCALE or FONT_LAYOUT_CP437)
 
@@ -39,28 +57,17 @@ proc main() =
     while true:
         discard sysCheckForEvent((ord(EVENT_KEY_PRESS) or ord(EVENT_MOUSE)), key, mouse)
 
-        consoleSetDefaultForeground(con, Amber)
-        # consoleSetDefaultBackground(nil, Black)
-        consolePutChar(con, player_x, player_y, '@', BKGND_NONE)
-
-        consoleSetDefaultForeground(con, LightGrey)
-        consolePrintfEx(    # print fps rates
-            con, 0, 0, BKGND_NONE, LEFT, "fps:%d (%d ms)",
-            sysGetFps(), int((sysGetLastFrameLength() * 1000))
-        )
-
-        consoleBlit(con, 0, 0, SW, SH, nil, 0, 0)
+        render_all(con, entities, game_map, SW, SH, colors)
         consoleFlush()
-
-        # clear stuff
-        consolePutChar(con, player_x, player_y, ' ', BKGND_NONE)
-        consolePrintfEx(con, 0, 0, BKGND_NONE, LEFT, "                                     ")
+        clear_all(con, entities)
 
         let action:Action = handle_keys(key)
         case action.name
             of "move":
-                player_x += action.dir.x
-                player_y += action.dir.y
+                let dx:int = action.dir.x
+                let dy:int = action.dir.y
+                if not game_map.is_obstacle(player.x + dx, player.y + dy):
+                    player.move(dx, dy)
             of "exit":
                 return
             of "fullscreen":
