@@ -1,3 +1,7 @@
+################################################################################
+# cellular automata based off of
+# https://gamedevelopment.tutsplus.com/tutorials/generate-random-cave-levels-using-cellular-automata--gamedev-9664
+################################################################################
 import random
 
 {.experimental: "codeReordering".}
@@ -19,8 +23,6 @@ method init_map(self:CaveGenerator):seq[seq[bool]] {.base.} =
         result[j] = newSeq[bool](self.w)
 
 
-# cellular automata based off of
-# https://gamedevelopment.tutsplus.com/tutorials/generate-random-cave-levels-using-cellular-automata--gamedev-9664
 method build_caves*(self:CaveGenerator):seq[seq[bool]] {.base.} =
     var cavemap = self.init_map()
 
@@ -61,10 +63,9 @@ method count_neighbors*(self:CaveGenerator, cavemap:seq[seq[bool]], x, y:int):in
     for j in -1..1:
         for i in -1..1:
             if not (i == 0 and j == 0):
-                var nb_x = x+i
+                var nb_x = x+i  # neighbor coords
                 var nb_y = y+j
 
                 # if it's out of bounds, count 1
-                if nb_x < 1 or nb_y < 1 or nb_x >= self.w-1 or nb_y >= self.h-1 or
-                    cavemap[nb_y][nb_x]:
-                        result += 1
+                if nb_x < 1 or nb_y < 1 or nb_x >= self.w-1 or nb_y >= self.h-1 or cavemap[nb_y][nb_x]:
+                    result += 1

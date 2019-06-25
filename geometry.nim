@@ -70,10 +70,12 @@ method intersects*(a, b:Rect):bool {.base.} =
     return a.x1 <= b.x2 and a.x2 >= b.x1 and
            a.y1 <= b.y2 and a.y2 >= b.y1
 
+# not tested
 method intersects*(r:Rect, p:Point):bool {.base.} =
-    return p.x >= r.x and p.x <= r.x2 and
-           p.y >= r.y and p.y <= r.y2
+    return p.x >= r.x1 and p.x <= r.x2 and
+           p.y >= r.y1 and p.y <= r.y2
 
+# not tested
 method intersects*(r:Rect, x, y:int):bool {.base.} =
-    return x >= r.x and x <= r.x2 and
-           y >= r.y and y <= r.y2
+    return x >= r.x1 and x <= r.x2 and
+           y >= r.y1 and y <= r.y2

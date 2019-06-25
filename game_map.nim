@@ -79,20 +79,17 @@ method set_tile(self:GameMap, x, y:int, tt:TileType) {.base.} =
 #
 ###############################################################################
 method make_village*(self:GameMap, player:Entity) {.base.} =
-    let
-        MW = self.w
-        MH = self.h
+    let MW = self.w     # for readibility
+    let MH = self.h
 
-    var tilemap = newSeq[ seq[TileType] ](self.h)
-    for j in 0..<self.h:
+    var tilemap = newSeq[ seq[TileType] ](MH)
+    for j in 0..<MH:
         tilemap[j] = newSeq[TileType](self.w)
-        for i in 0..<self.w:
-            tilemap[j][i] = TreePine
 
     # make the forest
     #---------------------------------------------------------------------------
     let
-        cg = CaveGenerator(w:self.w, h:self.h, birth_limit:3, death_limit:4, alive_chance:35, smooth_steps:4)
+        cg = CaveGenerator(w:self.w, h:MH, birth_limit:3, death_limit:4, alive_chance:35, smooth_steps:4)
         cavemap = cg.build_caves()
         HOUSES = [WallStone, WallWooden, Door_V, Door_H, Window_V, Window_H, FloorWooden]
 

@@ -2,9 +2,9 @@ import sktcod
 
 const
     GLYPH_WALL*         = '#'
-    GLYPH_FLOOR_DIRT*   = char(249) #'.'
+    GLYPH_FLOOR_DIRT*   = char(249) #'.'        # the . at 249 is centered
     GLYPH_FLOOR_WOODEN* = char(249) #'.'
-    GLYPH_FLOOR_GRASS*  = ','# '\''
+    GLYPH_FLOOR_GRASS*  = ',' # ';''
     GLYPH_WINDOW_H*     = char(196)
     GLYPH_WINDOW_V*     = char(179)
     GLYPH_WATER*        = '~'

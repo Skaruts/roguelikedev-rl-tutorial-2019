@@ -19,11 +19,11 @@ type
 proc main() =
     randomize()
     let
-        SW:int = 80
-        SH:int = 50
+        SW:int = 80     # screen width
+        SH:int = 50     # screen height
 
-        MW:int = 80
-        MH:int = 45
+        MW:int = 80     # map width
+        MH:int = 45     # map height
     var
         running:bool = true
 
