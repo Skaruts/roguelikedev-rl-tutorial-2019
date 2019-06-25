@@ -1,3 +1,4 @@
 # Roguelikedev rl tutorial event 2019
 
-I'm storing the weekly developments in branches, while I advance in the master branch.
+This is the project at the time after I completed part 1 of the tutorial.
+
