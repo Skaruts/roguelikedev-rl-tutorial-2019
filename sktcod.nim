@@ -33,3 +33,19 @@ proc consoleBlit*(src:Console, xSrc, ySrc, wSrc, hSrc:int, dst:Console, xDst, yD
 
 proc consoleSetCharBackground*(con:Console, x, y:int, col:Color, flag:BkgndFlag) =
     libtcod.consoleSetCharBackground(con, x.cint, y.cint, col, flag)
+
+
+proc mapNew*(width, height: int):Map =
+    return mapNew(cint(width), cint(height))
+
+proc mapSetProperties*(map: Map, x, y: int, isTransparent, isWalkable: bool) =
+    mapSetProperties(map, cint(x), cint(y), isTransparent, isWalkable)
+
+proc mapComputeFov*(map:Map, player_x, player_y:int, max_radius:int = 0, lightWalls:bool = true, algo:FovAlgorithm = FOV_BASIC) =
+    mapComputeFov(map, cint(player_x), cint(player_y), cint(max_radius), light_walls, algo)
+
+proc mapIsInFov*(map:Map; x, y:int): bool =
+    mapIsInFov(map, cint(x), cint(y))
+
+proc colorScaleHSV*(color:ptr Color, saturationCoef, valueCoef:float) =
+    colorScaleHSV(color, cfloat(saturationCoef), cfloat(valueCoef))

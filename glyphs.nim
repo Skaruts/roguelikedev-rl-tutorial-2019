@@ -1,6 +1,7 @@
 import sktcod
 
 const
+    GLYPH_EMPTY*        = char(32)
     GLYPH_WALL*         = '#'
     GLYPH_FLOOR_DIRT*   = char(249) #'.'        # the . at 249 is centered
     GLYPH_FLOOR_WOODEN* = char(249) #'.'
@@ -20,7 +21,7 @@ let
     COLOR_STONE_WALL*    = DarkGrey
     COLOR_WOODEN_WALL*   = LightSepia
     COLOR_WATER*         = Blue
-    COLOR_WINDOW*        = LighterBlue
+    COLOR_WINDOW*        = colorRGB(0, 120, 210)
     COLOR_PINE_TREE*     = colorRGB(0, 180, 50)
     COLOR_OAK_TREE*      = colorRGB(129, 150, 0)
     COLOR_DOOR*          = LightSepia
