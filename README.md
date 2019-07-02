@@ -1,16 +1,16 @@
 # r/RoguelikeDev Does The Complete Roguelike Tutorial 2019
 ![RoguelikeDev Does the Complete Roguelike Tutorial Event Logo](https://i.imgur.com/3MAzEp1.png)
 
-I'm using Nim and libtcod and not exactly doing a 1:1 reproduction of the tutorial, though I'm trying to follow the same progression. So you can expect me to be implementing the same things the tutorial is teaching each week.
+I'm using [Nim](https://nim-lang.org/) and [libtcod](https://github.com/Vladar4/libtcod_nim) and not exactly doing a 1:1 reproduction of the tutorial, but I'm trying to follow the same progression. So you can expect me to be implementing the same things the tutorial is teaching each week.
 
-I'm storing the weekly developments in branches, while I advance in the master branch.
+I'm storing my weekly developments in branches, while I advance in the master branch. (I've no clue if that's a good idea.)
 
 ---
 
-I've no clue where I'm going with this. I'm just making it up as I go. The main purpose is for me to exercise my knowledge of Nim, and to experiment with whatever comes up. This is also a nice opportunity to force myself to go all the way through, rather than wasting time with implementation details (and premature optimizations), which is a recurring problem I have.
+I don't really know where I'm going with this, I'm just making it up as I go. The main purpose is for me to exercise my knowledge of Nim and learn a few more things, and to experiment with whatever else comes up. This is also a nice opportunity to force myself to go all the way through, rather than wasting time with implementation details (and premature optimizations!), which is a recurring problem I have.
 
-So far the idea is more or less kinda sorta like...
-There's a forest. In that forest there's a village. So that means there -will- should be villagers. I'm thinking of laying out some sort of treasure here and there, and some baddies. I'm also thinking there should be a graveyard, for whatever reason. I have quite a few ideas, but none definitive.
+So far the idea is kinda sorta like...
+... there's a forest, and in that forest there's a village. So that means there ~~will~~ should be villagers. I'm thinking of laying out some sort of treasure here and there, and some baddies. I'm also thinking there should be a graveyard, for whatever reason. I have quite a few ideas, but none definitive.
 
 ---
 
