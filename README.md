@@ -1,7 +1,7 @@
 # r/RoguelikeDev Does The Complete Roguelike Tutorial 2019
 ![RoguelikeDev Does the Complete Roguelike Tutorial Event Logo](https://i.imgur.com/3MAzEp1.png)
 
-I'm using [Nim](https://nim-lang.org/) and [libtcod](https://github.com/Vladar4/libtcod_nim) and not exactly doing a 1:1 reproduction of the tutorial, but I'm trying to follow the same progression. So you can expect me to be implementing the same things the tutorial is teaching each week.
+I'm using [Nim](https://nim-lang.org/) and [libtcod_nim](https://github.com/Vladar4/libtcod_nim) and not exactly doing a 1:1 reproduction of the tutorial, but I'm trying to follow the same progression. So you can expect me to be implementing the same things the tutorial is teaching each week.
 
 I'm storing my weekly developments in branches, while I advance in the master branch. (I've no clue if that's a good idea.)
 
