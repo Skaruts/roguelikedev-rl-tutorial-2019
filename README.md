@@ -1,4 +1,5 @@
 # r/RoguelikeDev Does The Complete Roguelike Tutorial 2019
+![RoguelikeDev Does the Complete Roguelike Tutorial Event Logo](https://i.imgur.com/3MAzEp1.png)
 
 I'm using Nim and libtcod and not exactly doing a 1:1 reproduction of the tutorial, though I'm trying to follow the same progression. So you can expect me to be implementing the same things the tutorial is teaching each week.
 
@@ -25,7 +26,7 @@ There's a forest. In that forest there's a village. So that means there -will- s
 - [ ] add multi-tile entities
 
 #### **Done**
-- [x] add support for using dark-colored tiles or same-color tiles for tiles outside fov (settings.nim)
+- [x] add option for using faded-color or single-color for tiles outside fov (settings.nim)
 - [x] add way to recreate the map (Space key)
 - [x] add way to deactivate fov (F2 key)
 - [x] add fov
